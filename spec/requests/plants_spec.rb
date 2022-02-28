@@ -17,8 +17,8 @@ RSpec.describe "Plants", type: :request do
       get '/plants'
 
       expect(response.body).to include_json([
-        { id: a_kind_of(Integer), name: 'Aloe', image: './images/aloe.jpg', price: '15.99' },
-        { id: a_kind_of(Integer), name: 'ZZ Plant', image: './images/zz-plant.jpg', price: '25.98' }
+        { id: a_kind_of(Integer), name: 'Aloe', image: './images/aloe.jpg', price: 15.99 },
+        { id: a_kind_of(Integer), name: 'ZZ Plant', image: './images/zz-plant.jpg', price: 25.98 }
       ])
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe "Plants", type: :request do
         id: a_kind_of(Integer),
         name: 'Aloe', 
         image: './images/aloe.jpg', 
-        price: '15.99'
+        price: 15.99
       })
     end
 
@@ -42,13 +42,13 @@ RSpec.describe "Plants", type: :request do
         id: a_kind_of(Integer),
         name: 'ZZ Plant', 
         image: './images/zz-plant.jpg', 
-        price: '25.98'
+        price: 25.98
       })
     end
   end
 
   describe "POST /plants" do
-    let!(:plant_params) { { name: 'Pilea peperomioides', image: './images/pilea.jpg', price: '5.99' } }
+    let!(:plant_params) { { name: 'Pilea peperomioides', image: './images/pilea.jpg', price: 5.99 } }
 
     it 'creates a new plant' do
       expect { post '/plants', params: plant_params }.to change(Plant, :count).by(1)
@@ -61,7 +61,7 @@ RSpec.describe "Plants", type: :request do
         id: a_kind_of(Integer),
         name: 'Pilea peperomioides', 
         image: './images/pilea.jpg', 
-        price: '5.99'
+        price: 5.99
       })
     end
 
